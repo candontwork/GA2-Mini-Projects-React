@@ -10,13 +10,29 @@ export default function App() {
   const [products, setProducts] = useState(productsArr);
   const [cart, setCart] = useState([]);
 
-  function addToCart(item) {
-    setCart([...cart, item])
+  function addToCart(obj) {
+
+    setCart([
+      ...cart,
+      obj
+    ]);
+
+    // console.log(`in app ${obj}`)
+    // console.log(cart)
   }
 
-  function removeFromCart(index) {
-    const cartArr = cart.filter((item, index2) => i !== index)
-    setCart(cartArr)
+  function removeFromCart(id) {
+    let converter = id
+    let idNum = parseInt(converter, 10);
+    const inCart = cart.filter((element, index) => {
+      // console.log(typeof index) //number
+      // console.log(typeof idNum) //string
+      return index !== idNum;
+
+    });
+    console.log(inCart)
+    setCart(inCart)
+
   }
 
   // create an addToCart function that takes in a product as a param
@@ -30,8 +46,8 @@ export default function App() {
       <h1>Big Time Shopping</h1>
       <Form />
       <div className="products">
-        <AllTheThings handleClick = {addToCart}/>
-        <MyShoppingCart handleClick = {removeFromCart} />
+        <AllTheThings onAddToCartHandler={addToCart} />
+        <MyShoppingCart cart={cart} onRemoveFromCartHandler={removeFromCart} />
       </div>
     </div>
   );
