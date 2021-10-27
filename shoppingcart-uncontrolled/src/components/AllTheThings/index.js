@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-function AllTheThings({products}) {
+function AllTheThings({products, onAddToCartHandler}) {
 
   function itemOnClick(event) {
 
@@ -11,10 +11,11 @@ function AllTheThings({products}) {
 
     // console.log(obj)
     // console.log(products[index])
-    props.onAddToCartHandler(obj);
+    onAddToCartHandler(obj);
     return obj
   }
 
+console.log("this is", products)
   const productList = products.map((el, index) => {
 
     return (
