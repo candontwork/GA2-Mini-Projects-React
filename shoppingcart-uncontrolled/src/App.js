@@ -45,7 +45,7 @@ export default function App() {
     ])
 
   }
-  console.log(products)
+  // console.log(products)
   // create an addToCart function that takes in a product as a param
   // using the ...spread operator add the product to the cart array
 
